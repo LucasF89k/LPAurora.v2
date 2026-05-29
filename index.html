@@ -36,8 +36,41 @@ button{font-family:inherit;background:none;border:none;color:inherit;cursor:poin
 ::-webkit-scrollbar{width:0}
 img,svg{display:block;max-width:100%}
 
+/* ════ HERO DASHBOARD BG ════ */
+#hero-dash{position:fixed;top:50%;left:3vw;width:clamp(320px,32vw,520px);z-index:0;pointer-events:none;perspective:1100px;opacity:0}
+.hd-wrap{animation:hd-float 10s ease-in-out infinite;border-radius:9px;overflow:hidden;background:rgba(7,10,12,.82);border:1px solid rgba(47,230,214,.22);box-shadow:0 0 80px rgba(47,230,214,.12),0 20px 60px rgba(0,0,0,.7),0 0 0 1px rgba(47,230,214,.08);opacity:.62}
+@keyframes hd-float{0%,100%{transform:translateY(-50%) rotateX(5deg) rotateY(12deg)}50%{transform:translateY(calc(-50% - 22px)) rotateX(-3deg) rotateY(8deg)}}
+.hd-bar{background:rgba(10,16,17,.9);padding:.4rem .8rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(47,230,214,.08)}
+.hd-dots{display:flex;gap:.28rem}
+.hd-dots span{width:8px;height:8px;border-radius:50%}
+.hd-dots span:nth-child(1){background:#ff5f57}.hd-dots span:nth-child(2){background:#febc2e}.hd-dots span:nth-child(3){background:#28c840}
+.hd-url{font-size:.52rem;color:rgba(47,230,214,.4);letter-spacing:.3px}
+.hd-body{display:flex;height:268px;font-family:var(--fb);font-size:9px;background:var(--crm)}
+.hd-sb{width:100px;background:var(--crm2);border-right:1px solid rgba(47,230,214,.12);flex-shrink:0;padding:10px 0}
+.hd-sbt{padding:0 10px 10px;border-bottom:1px solid rgba(47,230,214,.1);margin-bottom:4px;font-family:var(--fd);font-size:11px;color:var(--txt);line-height:1.2}
+.hd-sbs{font-size:5.5px;letter-spacing:2px;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:2px}
+.hd-ni{padding:5px 10px;color:rgba(233,241,242,.3);font-size:8.5px}
+.hd-ni.on{color:var(--txt);background:rgba(47,230,214,.06);border-right:2px solid var(--em)}
+.hd-mn{flex:1;padding:10px;overflow:hidden}
+.hd-grt{font-family:var(--fd);font-size:17px;font-weight:300;color:var(--txt);margin-bottom:2px}
+.hd-grt em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hd-dt{font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(233,241,242,.2);margin-bottom:8px}
+.hd-sg{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-bottom:8px}
+.hd-sc{background:var(--crm3);border:1px solid rgba(47,230,214,.1);padding:5px 4px;border-radius:3px}
+.hd-sc.em{border-color:rgba(47,230,214,.2)}
+.hd-sc-l{font-size:5.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(233,241,242,.25);margin-bottom:3px}
+.hd-sc-n{font-family:var(--fd);font-size:16px}
+.hd-tth{font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(233,241,242,.2);margin-bottom:4px}
+.hd-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3px;padding:3.5px 0;border-top:1px solid rgba(47,230,214,.05);font-size:7.5px;color:rgba(233,241,242,.55)}
+.hd-rh{font-size:5.5px;color:rgba(233,241,242,.22);border-top-color:rgba(47,230,214,.08)}
+.hd-tg{font-size:6px;padding:1px 3px;border-radius:2px;width:fit-content}
+.hd-hot{background:rgba(240,168,56,.12);color:#f0a838}
+.hd-warm{background:rgba(92,224,232,.1);color:#5ce0e8}
+.hd-cold{background:rgba(233,241,242,.05);color:rgba(233,241,242,.35)}
+@media(max-width:900px){#hero-dash{display:none}}
+
 /* ════ EMBLEMA FLUTUANTE (losango do logo) ════ */
-#crystal{position:fixed;top:50%;right:6vw;width:clamp(240px,26vw,440px);aspect-ratio:1;transform:translateY(-50%);z-index:0;pointer-events:none;opacity:.95;perspective:900px}
+#crystal{position:fixed;top:50%;right:1vw;width:clamp(240px,26vw,440px);aspect-ratio:1;transform:translateY(-50%);z-index:1;pointer-events:none;opacity:.95;perspective:900px}
 #crystal .c-par{width:100%;height:100%;will-change:transform;position:relative}
 #crystal .c-neural{position:absolute;left:-38%;top:-38%;width:176%;height:176%;z-index:0;opacity:.9}
 #crystal .c-float{position:relative;z-index:1;width:100%;height:100%;animation:cfloat 7s ease-in-out infinite}
@@ -125,14 +158,14 @@ body.menu-open #mmenu{opacity:1;pointer-events:auto;transform:translateY(0)}
 .hyr{font-family:var(--fd);font-size:2.8rem;font-weight:300;color:rgba(47,230,214,.1);letter-spacing:-2px}
 
 /* ════ WORDS MARQUEE DIVIDER ════ */
-#words{padding:5rem 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2);overflow:hidden}
+#words{padding:5rem 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2);overflow:hidden;position:relative;z-index:2}
 .wtrack{display:flex;align-items:center;gap:3.5rem;white-space:nowrap;will-change:transform}
 .wtrack span{font-family:var(--fd);font-size:clamp(2.2rem,4.5vw,4.5rem);font-weight:300;font-style:italic;color:var(--txt);display:flex;align-items:center;gap:3.5rem;flex-shrink:0}
 .wtrack span::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--em);opacity:.55;display:inline-block;box-shadow:0 0 8px var(--em)}
 .wtrack span.dm{color:var(--muted)}
 
 /* ════ HORIZONTAL SCROLL ════ */
-#hsec{position:relative;height:100vh;overflow:hidden}
+#hsec{position:relative;height:100vh;overflow:hidden;z-index:2}
 .htrack{position:absolute;top:0;left:0;height:100%;display:flex;will-change:transform}
 .panel{width:100vw;height:100vh;flex-shrink:0;padding:8rem 5vw 7rem;display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;position:relative;overflow:hidden;align-items:center}
 .panel-l{display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
@@ -201,9 +234,46 @@ body.menu-open #mmenu{opacity:1;pointer-events:auto;transform:translateY(0)}
 .hn-btn .ar{font-style:normal;font-family:var(--fb);font-size:1.1rem}
 @media(max-width:760px){.hn-prog{display:none}.hn-lbl{display:none}}
 
+/* ════ INTEGRATIONS ════ */
+#integrations{padding:8rem 5vw;border-top:1px solid var(--bd);position:relative;overflow:hidden;z-index:2}
+#integrations::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(47,230,214,.09) 0%,rgba(77,216,255,.04) 40%,transparent 65%),radial-gradient(ellipse at 10% 80%,rgba(47,230,214,.06) 0%,transparent 50%);pointer-events:none;z-index:0}
+#integrations>.int-hd,#integrations>.int-grid{position:relative;z-index:1}
+.int-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:5rem;flex-wrap:wrap;gap:2rem}
+.int-tag{font-size:.57rem;letter-spacing:4px;text-transform:uppercase;color:var(--em);margin-bottom:1rem;opacity:.9}
+.int-title{font-family:var(--fd);font-size:clamp(2.8rem,5.5vw,6.5rem);font-weight:300;line-height:.9;letter-spacing:-3px}
+.int-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.int-sub{font-family:var(--fd);font-size:clamp(.9rem,1.6vw,1.2rem);font-style:italic;color:var(--soft);max-width:340px;text-align:right;align-self:flex-end}
+.int-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.int-card{background:rgba(10,15,18,.7);border:1px solid rgba(47,230,214,.1);border-radius:14px;padding:2.8rem;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:2rem}
+.int-card::before{content:'';position:absolute;top:-1px;left:-1px;width:44px;height:44px;border-top:1px solid var(--em);border-left:1px solid var(--em);border-radius:14px 0 0 0}
+.int-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 0%,rgba(47,230,214,.04),transparent 60%);pointer-events:none}
+.int-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.56rem;letter-spacing:3px;text-transform:uppercase;color:var(--em);border:1px solid rgba(47,230,214,.2);padding:.2rem .7rem;border-radius:100px;width:fit-content}
+.int-badge-tg{color:#29b6f6;border-color:rgba(41,182,246,.25)}
+.int-card-title{font-family:var(--fd);font-size:clamp(1.8rem,3.2vw,3.2rem);font-weight:300;line-height:1;letter-spacing:-1.5px}
+.int-card-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.int-card-title .tg-em{font-style:italic;background:linear-gradient(135deg,#29b6f6,#4dd8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.int-desc{font-size:.95rem;line-height:1.7;color:var(--soft);max-width:480px}
+.int-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.int-list li{display:flex;align-items:flex-start;gap:.8rem;font-size:.85rem;color:var(--soft);padding-bottom:.55rem;border-bottom:1px solid var(--bd)}
+.int-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--em);margin-top:.55rem;flex-shrink:0;box-shadow:0 0 6px var(--em)}
+.int-list.tg li::before{background:#29b6f6;box-shadow:0 0 6px rgba(41,182,246,.7)}
+/* mockup gcal */
+.gcal-mock{border-radius:8px;overflow:hidden;background:#0a1011;border:1px solid rgba(47,230,214,.1);font-family:var(--fb);font-size:10px}
+.gcal-bar{background:#0e1618;padding:.38rem .8rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(47,230,214,.08)}
+.gcal-body{padding:12px;display:flex;flex-direction:column;gap:8px}
+/* mockup telegram */
+.tg-mock{border-radius:8px;overflow:hidden;background:#0f1923;border:1px solid rgba(41,182,246,.12);font-family:var(--fb);font-size:10px}
+.tg-bar{background:#162330;padding:.4rem .8rem;display:flex;align-items:center;gap:.55rem;border-bottom:1px solid rgba(41,182,246,.1)}
+.tg-body{padding:12px;display:flex;flex-direction:column;gap:7px;max-height:220px;overflow:hidden}
+.tg-msg-bot{background:rgba(41,182,246,.07);border:1px solid rgba(41,182,246,.12);padding:7px 10px;border-radius:2px 9px 9px 9px;font-size:8.5px;color:rgba(233,241,242,.7);line-height:1.5;max-width:85%}
+.tg-msg-user{background:rgba(47,230,214,.07);border:1px solid rgba(47,230,214,.12);padding:7px 10px;border-radius:9px 2px 9px 9px;font-size:8.5px;color:rgba(233,241,242,.7);line-height:1.5;max-width:80%;align-self:flex-end}
+.tg-name{font-size:6.5px;color:#29b6f6;margin-bottom:2px;letter-spacing:.5px}
+@media(max-width:900px){.int-grid{grid-template-columns:1fr}.int-sub{text-align:left}}
+@media(max-width:600px){#integrations{padding:5rem 6vw}}
+
 /* ════ STATS ════ */
-#stats{padding:7rem 5vw;border-top:1px solid var(--bd);position:relative;overflow:hidden}
-.stats-glow{position:absolute;width:700px;height:380px;background:radial-gradient(ellipse,rgba(47,230,214,.06),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+#stats{padding:7rem 5vw;border-top:1px solid var(--bd);position:relative;overflow:hidden;z-index:2}
+.stats-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(47,230,214,.11) 0%,rgba(77,216,255,.05) 40%,transparent 70%),radial-gradient(ellipse at 80% 20%,rgba(77,216,255,.07) 0%,transparent 50%);pointer-events:none}
 .sth{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:2rem;flex-wrap:wrap;position:relative;z-index:2}
 .sth-l{font-size:.57rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
 .sth-r{font-family:var(--fd);font-size:clamp(.9rem,1.8vw,1.3rem);font-style:italic;color:var(--soft);max-width:280px;text-align:right}
@@ -215,8 +285,8 @@ body.menu-open #mmenu{opacity:1;pointer-events:auto;transform:translateY(0)}
 .sd{font-family:var(--fd);font-size:.98rem;font-style:italic;color:var(--txt);margin-top:.4rem}
 
 /* ════ CTA ════ */
-#cta{padding:9rem 5vw 7rem;position:relative;overflow:hidden;border-top:1px solid var(--bd)}
-.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(47,230,214,.08),rgba(77,216,255,.04) 40%,transparent 70%);pointer-events:none}
+#cta{padding:9rem 5vw 7rem;position:relative;overflow:hidden;border-top:1px solid var(--bd);z-index:2}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(47,230,214,.13) 0%,rgba(77,216,255,.07) 35%,transparent 65%),radial-gradient(ellipse at 85% 80%,rgba(47,230,214,.07) 0%,transparent 45%);pointer-events:none}
 .cw{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:7rem;align-items:start;position:relative;z-index:1}
 .cey{font-size:.57rem;letter-spacing:4px;text-transform:uppercase;color:var(--em);margin-bottom:1.4rem;opacity:.9}
 .ch2{font-family:var(--fd);font-size:clamp(3.5rem,7vw,8rem);font-weight:300;line-height:.9;letter-spacing:-4px;margin-bottom:2.5rem}
@@ -253,7 +323,7 @@ select.fi option{background:var(--bg2)}
 .sd2{color:var(--muted);font-size:.85rem}
 
 /* FOOTER */
-footer{padding:2.8rem 5vw 2rem;border-top:1px solid var(--bd)}
+footer{padding:2.8rem 5vw 2rem;border-top:1px solid var(--bd);position:relative;z-index:2}
 .fg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;max-width:1300px;margin:0 auto}
 .fbrand{font-family:var(--fd);font-size:1.25rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ftxt{font-size:.9rem;color:var(--txt);line-height:1.7;margin-top:.5rem;font-style:italic;font-family:var(--fd)}
@@ -311,6 +381,41 @@ footer{padding:2.8rem 5vw 2rem;border-top:1px solid var(--bd)}
 
 <div id="cur"></div><div id="cur-r"></div>
 <div id="prog"></div>
+
+<!-- HERO DASHBOARD BG -->
+<div id="hero-dash" aria-hidden="true">
+  <div class="hd-wrap">
+    <div class="hd-bar">
+      <div class="hd-dots"><span></span><span></span><span></span></div>
+      <div class="hd-url">aurora.app/dashboard</div>
+    </div>
+    <div class="hd-body">
+      <div class="hd-sb">
+        <div class="hd-sbt">Aurora<br>Company<div class="hd-sbs">CRM</div></div>
+        <div class="hd-ni on">⊞ Dashboard</div>
+        <div class="hd-ni">AI Assistente</div>
+        <div class="hd-ni">WhatsApp</div>
+        <div class="hd-ni">Agenda</div>
+      </div>
+      <div class="hd-mn">
+        <div class="hd-grt">Benvenuto, <em>Lucas.</em></div>
+        <div class="hd-dt">Resumo — 28 de Maio</div>
+        <div class="hd-sg">
+          <div class="hd-sc em"><div class="hd-sc-l">Total</div><div class="hd-sc-n" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">47</div></div>
+          <div class="hd-sc"><div class="hd-sc-l">Frios</div><div class="hd-sc-n" style="color:var(--txt)">18</div></div>
+          <div class="hd-sc"><div class="hd-sc-l">Mornos</div><div class="hd-sc-n" style="color:#5ce0e8">21</div></div>
+          <div class="hd-sc"><div class="hd-sc-l">Quentes</div><div class="hd-sc-n" style="color:#f0a838">8</div></div>
+          <div class="hd-sc em"><div class="hd-sc-l" style="color:var(--em)">Ativos</div><div class="hd-sc-n" style="color:var(--txt)">5</div></div>
+        </div>
+        <div class="hd-tth">Monitor de Leads</div>
+        <div class="hd-row hd-rh"><span>Cliente</span><span>Score</span><span>Status</span><span>Ação</span></div>
+        <div class="hd-row"><span>João Silva</span><span style="color:var(--em)">92</span><span class="hd-tg hd-hot">Quente</span><span style="color:var(--em)">→</span></div>
+        <div class="hd-row"><span>Ana Costa</span><span style="color:#5ce0e8">65</span><span class="hd-tg hd-warm">Morno</span><span style="color:var(--em)">→</span></div>
+        <div class="hd-row"><span>Carlos Lima</span><span style="color:rgba(233,241,242,.35)">30</span><span class="hd-tg hd-cold">Frio</span><span style="color:var(--em)">→</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- EMBLEMA FLUTUANTE (losango do logo) + malha neural -->
 <div id="crystal" aria-hidden="true">
@@ -581,6 +686,114 @@ footer{padding:2.8rem 5vw 2rem;border-top:1px solid var(--bd)}
   </div>
 </div>
 
+<!-- ═══ INTEGRATIONS ══════════════════════ -->
+<section id="integrations">
+  <div class="int-hd">
+    <div>
+      <div class="int-tag">⊕ Integrações Nativas</div>
+      <h2 class="int-title">Tudo conectado,<br><em>automaticamente.</em></h2>
+    </div>
+    <p class="int-sub">Do agendamento ao relatório — sem você mover um dedo.</p>
+  </div>
+
+  <div class="int-grid">
+
+    <!-- CARD 1 — Google Calendar + E-mail -->
+    <div class="int-card">
+      <div class="int-badge">Google Calendar & E-mail</div>
+      <h3 class="int-card-title">Agenda e notifica<br><em>em tempo real.</em></h3>
+      <p class="int-desc">Cada reunião marcada pelo SDR é adicionada <strong style="color:var(--txt);font-weight:400">instantaneamente</strong> no seu Google Calendar e uma confirmação é enviada por e-mail para você e para o lead — tudo sem intervenção humana. Trabalhamos exclusivamente com Google Calendar, garantindo a melhor integração e confiabilidade.</p>
+      <ul class="int-list">
+        <li>Notificação por e-mail disparada no momento do agendamento</li>
+        <li>Google Calendar atualizado em tempo real, sem delay</li>
+        <li>Lead também recebe a confirmação com os detalhes da reunião</li>
+        <li>Exclusivamente Google Calendar — integração nativa e sem fricção</li>
+      </ul>
+      <!-- Mockup GCal + email toast -->
+      <div class="gcal-mock">
+        <div class="gcal-bar">
+          <div class="hd-dots"><span></span><span></span><span></span></div>
+          <div style="flex:1;font-size:.52rem;color:rgba(47,230,214,.4);letter-spacing:.3px">calendar.google.com</div>
+          <div style="font-size:5.5px;letter-spacing:2px;text-transform:uppercase;color:var(--em);display:flex;align-items:center;gap:3px"><span style="width:5px;height:5px;border-radius:50%;background:var(--em);display:inline-block;animation:bk 2s infinite"></span>LIVE</div>
+        </div>
+        <div class="gcal-body">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
+            <span style="font-family:var(--fd);font-size:13px;color:var(--txt);font-style:italic">Maio 2026</span>
+            <span style="font-size:6px;letter-spacing:2px;text-transform:uppercase;color:rgba(233,241,242,.25)">Sincronizado agora</span>
+          </div>
+          <div style="background:rgba(47,230,214,.06);border:1px solid rgba(47,230,214,.18);border-left:3px solid var(--em);border-radius:3px;padding:7px 9px">
+            <div style="font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--em);margin-bottom:3px">NOVO AGENDAMENTO</div>
+            <div style="font-size:9.5px;color:var(--txt);font-weight:500;margin-bottom:2px">Demo Aurora CRM — João Silva</div>
+            <div style="font-size:7.5px;color:rgba(233,241,242,.5)">Qui, 29 mai · 14:00 – 14:30 · Google Meet</div>
+            <div style="margin-top:5px;display:flex;align-items:center;gap:5px">
+              <div style="font-size:6.5px;color:rgba(233,241,242,.35)">Convidados:</div>
+              <div style="font-size:6.5px;color:rgba(47,230,214,.7)">joao@email.com</div>
+              <div style="font-size:6.5px;color:rgba(233,241,242,.2)">+você</div>
+            </div>
+          </div>
+          <div style="background:rgba(10,15,12,.9);border:1px solid rgba(47,230,214,.12);border-radius:5px;padding:6px 9px;display:flex;align-items:flex-start;gap:7px">
+            <div style="width:22px;height:22px;border-radius:4px;background:rgba(47,230,214,.1);border:1px solid rgba(47,230,214,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <svg viewBox="0 0 16 16" width="10" height="10" fill="none"><rect x="2" y="1" width="12" height="14" rx="1.5" stroke="#2fe6d6" stroke-width="1.3"/><path d="M5 5h6M5 8h4" stroke="#2fe6d6" stroke-width="1" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div style="font-size:6px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(233,241,242,.3);margin-bottom:1px">E-MAIL ENVIADO</div>
+              <div style="font-size:8.5px;color:var(--txt)">Confirmação de reunião · Aurora SDR</div>
+              <div style="font-size:7px;color:rgba(233,241,242,.4);margin-top:1px">Para: joao@email.com · Agora mesmo</div>
+            </div>
+            <div style="margin-left:auto;font-size:6px;background:rgba(47,230,214,.1);color:var(--em);padding:2px 5px;border-radius:3px;flex-shrink:0">✓ Entregue</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 — Telegram Bot -->
+    <div class="int-card">
+      <div class="int-badge int-badge-tg">Bot Telegram</div>
+      <h3 class="int-card-title">Relatórios e buscas<br><span class="tg-em">no Telegram.</span></h3>
+      <p class="int-desc">Seu assistente pessoal no Telegram: toda semana receba um relatório completo com as atualizações do CRM — leads novos, conversões, agendamentos. E quando precisar, use o bot para <strong style="color:var(--txt);font-weight:400">buscar qualquer coisa na web</strong>: carros à venda, imóveis, cotações de mercado e muito mais.</p>
+      <ul class="int-list tg">
+        <li>Relatório semanal automático com resumo completo do CRM</li>
+        <li>Alertas em tempo real de leads quentes e agendamentos</li>
+        <li>Busca inteligente na web: carros, imóveis, mercado e mais</li>
+        <li>Tudo direto no Telegram — sem precisar abrir o CRM</li>
+      </ul>
+      <!-- Mockup Telegram -->
+      <div class="tg-mock">
+        <div class="tg-bar">
+          <div style="width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#29b6f6,#4dd8ff);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.48 13.695l-2.95-.924c-.642-.2-.657-.642.136-.953l11.57-4.461c.537-.194 1.006.131.658.864z"/></svg>
+          </div>
+          <div>
+            <div style="font-size:9px;color:var(--txt);font-weight:500">Aurora Bot</div>
+            <div style="font-size:6.5px;color:#29b6f6">● online</div>
+          </div>
+        </div>
+        <div class="tg-body">
+          <div class="tg-msg-bot">
+            <div class="tg-name">Aurora Bot</div>
+            <strong style="color:#e9f1f2">📊 Relatório Semanal — Aurora CRM</strong><br>
+            Semana de 19–25 mai<br><br>
+            Leads novos: <span style="color:#2fe6d6">+12</span> · Quentes: <span style="color:#f0a838">5</span><br>
+            Agendamentos: <span style="color:#2fe6d6">8</span> · Conversões: <span style="color:#28c840">3</span><br>
+            Taxa de resposta: <span style="color:#2fe6d6">94%</span>
+          </div>
+          <div class="tg-msg-user">pesquisa carros seminovos abaixo de 60k em SP</div>
+          <div class="tg-msg-bot">
+            <div class="tg-name">Aurora Bot</div>
+            🔍 <strong style="color:#e9f1f2">Buscando na web...</strong><br><br>
+            Encontrei 4 opções relevantes em SP:<br>
+            <span style="color:#29b6f6">› Honda Civic 2022</span> — R$ 89.900<br>
+            <span style="color:#29b6f6">› Toyota Corolla 2021</span> — R$ 82.000<br>
+            <span style="color:#29b6f6">› VW Jetta 2023</span> — R$ 97.500<br>
+            <span style="color:rgba(233,241,242,.4);font-size:7.5px">Fontes: iCarros, WebMotors · atualizado agora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- STATS -->
 <section id="stats">
   <div class="stats-glow"></div>
@@ -703,6 +916,16 @@ function init(){
   gsap.from('.hfoot',{y:14,opacity:0,duration:.8,ease:'power3.out',delay:.6});
   gsap.to('.hbg',{yPercent:20,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1.2}});
 
+  /* HERO DASH BG — aparece no hero, some ao scrollar */
+  gsap.to('#hero-dash',{opacity:1,duration:1.4,ease:'power3.out',delay:.9});
+  ScrollTrigger.create({
+    trigger:'#hero',
+    start:'bottom 70%',
+    onEnter:()=>gsap.to('#hero-dash',{opacity:0,duration:.5,ease:'power2.in'}),
+    onLeaveBack:()=>gsap.to('#hero-dash',{opacity:1,duration:.6,ease:'power2.out'})
+  });
+
+
   /* CRISTAL — só em telas maiores (no celular fica escondido p/ performance) */
   const par=document.querySelector('.c-par');
   if(par && window.innerWidth>600){
@@ -725,6 +948,11 @@ function init(){
 
   /* HORIZONTAL */
   setupHorizontal();
+
+  /* INTEGRATIONS */
+  gsap.from('.int-hd > div',{y:30,opacity:0,duration:.85,ease:'expo.out',scrollTrigger:{trigger:'#integrations',start:'top 78%'}});
+  gsap.from('.int-sub',{y:20,opacity:0,duration:.7,ease:'power3.out',delay:.12,scrollTrigger:{trigger:'#integrations',start:'top 78%'}});
+  gsap.from('.int-card',{y:50,opacity:0,duration:1,ease:'expo.out',stagger:.18,scrollTrigger:{trigger:'#integrations',start:'top 72%'}});
 
   /* STATS */
   gsap.from('.sth-l,.sth-r',{y:18,opacity:0,duration:.7,stagger:.08,scrollTrigger:{trigger:'#stats',start:'top 78%'}});
